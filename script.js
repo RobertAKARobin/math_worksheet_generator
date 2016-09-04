@@ -1,5 +1,7 @@
 var main = function(){
-  $("body").css("background-color", "red");
+  var firstNumber = Math.random();
+  var secondNumber = Math.random();
+  $("#problem").html(firstNumber + " + " + secondNumber + " = ___");
 }
 
 $(document).ready(main);
