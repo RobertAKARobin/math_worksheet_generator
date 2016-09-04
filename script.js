@@ -2,10 +2,14 @@ var random = function(){
   return Math.floor(Math.random() * 10);
 }
 
-var main = function(){
+var generateProblem = function(){
   var firstNumber = random();
   var secondNumber = random();
-  $("#problem").html(firstNumber + " + " + secondNumber + " = ___");
+  return (firstNumber + " + " + secondNumber + " = ___");
+}
+
+var main = function(){
+  $("#problem").html(generateProblem());
 }
 
 $(document).ready(main);
