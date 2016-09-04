@@ -9,7 +9,9 @@ var generateProblem = function(){
 }
 
 var main = function(){
-  $("#problem").html(generateProblem());
+  $("#problems").html( $("#problems").html() + generateProblem());
+  $("#problems").html( $("#problems").html() + generateProblem());
+  $("#problems").html( $("#problems").html() + generateProblem());
 }
 
 $(document).ready(main);
