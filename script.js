@@ -1,3 +1,11 @@
+var repeatTimes = function(totalTimes, functionToRepeat){
+  var currentTime = 0;
+  while(currentTime < totalTimes){
+    functionToRepeat();
+    currentTime += 1;
+  }
+}
+
 var random = function(){
   return Math.floor(Math.random() * 10);
 }
@@ -13,12 +21,7 @@ var placeProblem = function(){
 }
 
 var main = function(){
-  var numberOfProblems = 10;
-  var problemNumber = 0;
-  while(problemNumber < numberOfProblems){
-    placeProblem();
-    problemNumber += 1;
-  }
+  repeatTimes(10, placeProblem);
 }
 
 $(document).ready(main);
