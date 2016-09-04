@@ -20,8 +20,12 @@ var placeProblem = function(){
   $("#problems").html( $("#problems").html() + generateProblem());
 }
 
-var main = function(){
+var placeProblems = function(){
   repeatTimes(10, placeProblem);
+}
+
+var main = function(){
+  $("#do_generate").on("click", placeProblems);
 }
 
 $(document).ready(main);
