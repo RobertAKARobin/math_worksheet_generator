@@ -13,9 +13,12 @@ var placeProblem = function(){
 }
 
 var main = function(){
-  placeProblem();
-  placeProblem();
-  placeProblem();
+  var numberOfProblems = 10;
+  var problemNumber = 0;
+  while(problemNumber < numberOfProblems){
+    placeProblem();
+    problemNumber += 1;
+  }
 }
 
 $(document).ready(main);
