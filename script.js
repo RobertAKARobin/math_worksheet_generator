@@ -8,10 +8,14 @@ var generateProblem = function(){
   return (firstNumber + " + " + secondNumber + " = ___");
 }
 
+var placeProblem = function(){
+  $("#problems").html( $("#problems").html() + generateProblem());
+}
+
 var main = function(){
-  $("#problems").html( $("#problems").html() + generateProblem());
-  $("#problems").html( $("#problems").html() + generateProblem());
-  $("#problems").html( $("#problems").html() + generateProblem());
+  placeProblem();
+  placeProblem();
+  placeProblem();
 }
 
 $(document).ready(main);
