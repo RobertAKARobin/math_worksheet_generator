@@ -6,13 +6,13 @@ var repeatTimes = function(totalTimes, functionToRepeat){
   }
 }
 
-var random = function(){
-  return Math.floor(Math.random() * 10);
+var randomUpTo = function(max){
+  return Math.floor(Math.random() * max);
 }
 
 var generateProblem = function(){
-  var firstNumber = random();
-  var secondNumber = random();
+  var firstNumber = randomUpTo(10);
+  var secondNumber = randomUpTo(10);
   return (firstNumber + " + " + secondNumber + " = ___");
 }
 
