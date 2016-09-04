@@ -1,6 +1,6 @@
 var main = function(){
-  var firstNumber = Math.random();
-  var secondNumber = Math.random();
+  var firstNumber = Math.floor(Math.random() * 10);
+  var secondNumber = Math.floor(Math.random() * 10);
   $("#problem").html(firstNumber + " + " + secondNumber + " = ___");
 }
 
