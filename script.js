@@ -21,7 +21,8 @@ var placeProblem = function(){
 }
 
 var placeProblems = function(){
-  repeatTimes(10, placeProblem);
+  var numberOfProblems = $("#total_problems").val();
+  repeatTimes(numberOfProblems, placeProblem);
 }
 
 var main = function(){
