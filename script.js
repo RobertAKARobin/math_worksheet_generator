@@ -11,8 +11,9 @@ var randomUpTo = function(max){
 }
 
 var generateProblem = function(){
-  var firstNumber = randomUpTo(10);
-  var secondNumber = randomUpTo(10);
+  var maxNumber = $("#max_number").val();
+  var firstNumber = randomUpTo(maxNumber);
+  var secondNumber = randomUpTo(maxNumber);
   return (firstNumber + " + " + secondNumber + " = ___");
 }
 
