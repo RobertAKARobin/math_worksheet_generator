@@ -1,8 +1,3 @@
-var placeProblem = function(){
-  var maxNumber = $("#max_number").val();
-  $("#problems").html( $("#problems").html() + generateProblem());
-}
-
 var placeProblems = function(){
   var numberOfProblems = $("#total_problems").val();
   var maxNumber = $("#max_number").val();
