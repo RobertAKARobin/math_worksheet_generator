@@ -13,5 +13,16 @@ describe("Calc", function(){
         testNum += 1;
       }
     });
+    it("always returns a whole number", function(){
+      var output;
+      var maxNumber = 10;
+      var timesToTest = 20;
+      var testNum = 0;
+      while(testNum < timesToTest){
+        output = Calc.randomUpTo(maxNumber);
+        expect(output % 1).toBe(0);
+        testNum += 1;
+      }
+    });
   });
 });
