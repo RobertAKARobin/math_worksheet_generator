@@ -1,5 +1,3 @@
-var _ = require("../helpers.js");
-
 describe("Helpers", function(){
   describe("#repeatTimes", function(){
     it("repeats the provided function N times", function(){

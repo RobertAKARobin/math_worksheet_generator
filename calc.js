@@ -4,4 +4,4 @@ var Calc = {
   }
 }
 
-if(typeof module !== "undefined") module.exports = Calc;
+if(typeof module !== "undefined") global.Calc = Calc;

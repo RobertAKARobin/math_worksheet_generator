@@ -8,4 +8,4 @@ var _ = {
   }
 }
 
-if(typeof module !== "undefined") module.exports = _;
+if(typeof module !== "undefined") global._ = _;

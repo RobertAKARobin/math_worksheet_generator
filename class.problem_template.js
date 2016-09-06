@@ -1,5 +1,3 @@
-if(typeof module !== "undefined") var Calc = require("./calc.js");
-
 var ProblemTemplate = function(options){
   var instance = this;
   instance.options = options;
@@ -15,4 +13,4 @@ ProblemTemplate.prototype = {
   }
 }
 
-if(typeof module !== "undefined") module.exports = ProblemTemplate;
+if(typeof module !== "undefined") global.ProblemTemplate = ProblemTemplate;

@@ -1,5 +1,3 @@
-var ProblemTemplate = require("../class.problem_template.js");
-
 describe("ProblemTemplate", function(){
   describe("#generate", function(){
     it("returns two addends and a sum", function(){

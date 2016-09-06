@@ -1,6 +1,3 @@
-var Calc = require("../calc.js");
-var _ = require("../helpers.js");
-
 describe("Calc", function(){
   describe("#randomUpTo", function(){
     it("always returns a random number up to N", function(){
