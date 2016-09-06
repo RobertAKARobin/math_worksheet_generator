@@ -2,9 +2,16 @@ var Calc = require("../calc.js");
 
 describe("Calc", function(){
   describe("#randomUpTo", function(){
-    it("returns a random number up to N", function(){
-      var output = Calc.randomUpTo(10);
-      expect(output).toBeLessThan(10);
+    it("always returns a random number up to N", function(){
+      var output;
+      var maxNumber = 10;
+      var timesToTest = 20;
+      var testNum = 0;
+      while(testNum < timesToTest){
+        output = Calc.randomUpTo(maxNumber);
+        expect(output).toBeLessThan(maxNumber);
+        testNum += 1;
+      }
     });
   });
 });
