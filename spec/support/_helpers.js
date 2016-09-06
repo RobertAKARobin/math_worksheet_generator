@@ -2,7 +2,7 @@ var files = [
   "helpers",
   "calc",
   "class.problem",
-  "class.problem_template"
+  "class.problem_factory"
 ];
 
 files.forEach(function(file){

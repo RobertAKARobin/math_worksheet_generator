@@ -1,9 +1,9 @@
-var ProblemTemplate = function(options){
+var ProblemFactory = function(options){
   var instance = this;
   instance.options = options;
 }
 
-ProblemTemplate.prototype = {
+ProblemFactory.prototype = {
   generate: function(){
     var instance = this;
     var problem = new Problem();
@@ -16,4 +16,4 @@ ProblemTemplate.prototype = {
   }
 }
 
-if(typeof module !== "undefined") global.ProblemTemplate = ProblemTemplate;
+if(typeof module !== "undefined") global.ProblemFactory = ProblemFactory;

@@ -6,11 +6,11 @@ var placeProblem = function(){
 var placeProblems = function(){
   var numberOfProblems = $("#total_problems").val();
   var maxNumber = $("#max_number").val();
-  var problemTemplate = new ProblemTemplate({
+  var problemFactory = new ProblemFactory({
     maxNumber: maxNumber
   });
   _.repeatTimes(numberOfProblems, function(){
-    var problem = problemTemplate.generate();
+    var problem = problemFactory.generate();
     $("#problems").html( $("#problems").html() + problem.render() );
   });
 }
