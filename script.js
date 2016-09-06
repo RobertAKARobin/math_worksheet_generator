@@ -6,14 +6,10 @@ var repeatTimes = function(totalTimes, functionToRepeat){
   }
 }
 
-var randomUpTo = function(max){
-  return Math.floor(Math.random() * max);
-}
-
 var generateProblem = function(){
   var maxNumber = $("#max_number").val();
-  var firstNumber = randomUpTo(maxNumber);
-  var secondNumber = randomUpTo(maxNumber);
+  var firstNumber = Calc.randomUpTo(maxNumber);
+  var secondNumber = Calc.randomUpTo(maxNumber);
   return (firstNumber + " + " + secondNumber + " = ___");
 }
 
