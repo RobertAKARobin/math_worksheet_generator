@@ -6,10 +6,13 @@ var ProblemTemplate = function(options){
 ProblemTemplate.prototype = {
   generate: function(){
     var instance = this;
-    var firstAddend = Calc.randomUpTo(instance.options.maxNumber);
-    var secondAddend = Calc.randomUpTo(instance.options.maxNumber);
-    var sum = (firstAddend + secondAddend);
-    return [firstAddend, secondAddend, sum];
+    var problem = new Problem();
+    problem.addend = [
+      Calc.randomUpTo(instance.options.maxNumber),
+      Calc.randomUpTo(instance.options.maxNumber)
+    ];
+    problem.sum = problem.addend[0] + problem.addend[1];
+    return problem;
   }
 }
 

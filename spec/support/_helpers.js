@@ -1,6 +1,7 @@
 var files = [
   "helpers",
   "calc",
+  "class.problem",
   "class.problem_template"
 ];
 

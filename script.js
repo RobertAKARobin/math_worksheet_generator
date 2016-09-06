@@ -11,8 +11,7 @@ var placeProblems = function(){
   });
   _.repeatTimes(numberOfProblems, function(){
     var problem = problemTemplate.generate();
-    var renderedProblem = problem[0] + " + " + problem[1] + " = ___ ";
-    $("#problems").html( $("#problems").html() + renderedProblem );
+    $("#problems").html( $("#problems").html() + problem.render() );
   });
 }
 
