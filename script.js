@@ -1,17 +1,19 @@
-var generateProblem = function(){
-  var maxNumber = $("#max_number").val();
-  var firstNumber = Calc.randomUpTo(maxNumber);
-  var secondNumber = Calc.randomUpTo(maxNumber);
-  return (firstNumber + " + " + secondNumber + " = ___");
-}
-
 var placeProblem = function(){
+  var maxNumber = $("#max_number").val();
   $("#problems").html( $("#problems").html() + generateProblem());
 }
 
 var placeProblems = function(){
   var numberOfProblems = $("#total_problems").val();
-  _.repeatTimes(numberOfProblems, placeProblem);
+  var maxNumber = $("#max_number").val();
+  var problemTemplate = new ProblemTemplate({
+    maxNumber: maxNumber
+  });
+  _.repeatTimes(numberOfProblems, function(){
+    var problem = problemTemplate.generate();
+    var renderedProblem = problem[0] + " + " + problem[1] + " = ___ ";
+    $("#problems").html( $("#problems").html() + renderedProblem );
+  });
 }
 
 var main = function(){
