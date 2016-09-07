@@ -11,6 +11,7 @@ var placeProblems = function(){
 }
 
 var main = function(){
+  Problem.prototype.template = new Template(_.get("[data-template='problem']"));
   _.get("#do_generate").addEventListener("click", placeProblems);
 }
 

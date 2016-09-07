@@ -3,6 +3,7 @@
   <head>
     <title>Math Worksheet Generator</title>
     <script src="helpers.js"></script>
+    <script src="template.js"></script>
     <script src="calc.js"></script>
     <script src="class.problem_factory.js"></script>
     <script src="class.problem.js"></script>
@@ -10,8 +11,16 @@
   </head>
   <body>
     <h1>Math Worksheet Generator</h1>
+
+    <div data-template="problem">
+      {{#each addend}}
+        {{#if _index}}&plus; {{/if}} {{_value}}
+      {{/each}}
+      &equals; {{sum}}
+    </div>
+
     <div id="controls">
-      <label>How many problems? <input type="number" id="total_problems" value="10" /></label>
+      <label>How many problems? <input type="number" id="total_problems" value="2" /></label>
       <label>Max numbers to add? <input type="number" id="max_number" value="10" /></label>
       <button id="do_generate">Generate</button>
     </div>

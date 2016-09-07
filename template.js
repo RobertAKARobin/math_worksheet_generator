@@ -10,7 +10,7 @@ Template.prototype = (function(){
   var private = {};
 
   var regex = {
-    directive: /\{\{\#(.*?) ?(.*?)\}\}(.*?)\{\{\/\1\}\}/g,
+    directive: /\{\{\#(.*?) ?(.*?)\}\}([\s\S]*?)\{\{\/\1\}\}/gm,
     field: /\{\{(.*?)\}\}/g
   }
 

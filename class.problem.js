@@ -5,7 +5,7 @@ var Problem = function(){
 Problem.prototype = {
   render: function(){
     var instance = this;
-    return instance.addend[0] + " + " + instance.addend[1] + " = ___ ";
+    return instance.template.fillWith(instance);
   }
 }
 
