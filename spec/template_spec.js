@@ -21,6 +21,20 @@ describe("Template", function(){
       });
       expect(output).toBe("Hello! Go foo 0! Go bar 1!");
     });
+    it("works across multiple lines", function(){
+      var template = new Template("{{greet}}\
+{{#each testStrings}}\
+ Go {{_value}} {{_index}}!\
+{{/each}}");
+      var output = template.fillWith({
+        greet: "Hello!",
+        testStrings: [
+          "foo",
+          "bar"
+        ]
+      });
+      expect(output).toBe("Hello! Go foo 0! Go bar 1!");
+    });
   });
   describe("#if", function(){
     it("allows conditional rendering", function(){
