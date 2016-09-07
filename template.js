@@ -15,13 +15,20 @@ Template.prototype = (function(){
   }
 
   var directives = {
+    if: function(source, field){
+      if(private.fields[field]){
+        return source;
+      }else{
+        return "";
+      }
+    },
     each: function(source, field){
       var values = private.fields[field];
       var index, times = values.length;
       var output = "";
       for(index = 0; index < times; index += 1){
-        private.fields._value = values[index];
-        private.fields._index = index;
+        private.fields["_value"] = values[index];
+        private.fields["_index"] = index;
         output += fill(source);
       }
       return output;

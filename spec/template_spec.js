@@ -22,4 +22,16 @@ describe("Template", function(){
       expect(output).toBe("Hello! Go foo 0! Go bar 1!");
     });
   });
+  describe("#if", function(){
+    it("allows conditional rendering", function(){
+      var template = new Template("{{#each testStrings}}{{#if _index}} then {{/if}}{{_value}}{{/each}}");
+      var output = template.fillWith({
+        testStrings: [
+          "testA",
+          "testB"
+        ]
+      });
+      expect(output).toBe("testA then testB");
+    });
+  });
 });
