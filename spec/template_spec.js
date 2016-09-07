@@ -9,17 +9,17 @@ describe("Template", function(){
       expect(output).toBe("<div>foo bar</div>");
     });
   });
-  describe("[data-repeat]", function(){
-    xit("renders a sub-template once for each item in an array", function(){
-      var template = new Template("{{greet}} <span data-repeat='testStrings'>Go {{value}}!</span>");
+  describe("#each", function(){
+    it("renders a sub-template once for each item in an array", function(){
+      var template = new Template("{{greet}}{{#each testStrings}} Go {{_value}} {{_index}}!{{/each}}");
       var output = template.fillWith({
         greet: "Hello!",
         testStrings: [
-          "testA",
-          "testB"
+          "foo",
+          "bar"
         ]
       });
-      expect(output).toBe("Hello! Go testA! Go testB!");
+      expect(output).toBe("Hello! Go foo 0! Go bar 1!");
     });
   });
 });
