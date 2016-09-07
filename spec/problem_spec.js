@@ -5,7 +5,7 @@ describe("Problem", function(){
         maxNumber: 10
       });
       var problem = problemFactory.generate();
-      var desiredOutput = problem.addend[0] + " + " + problem.addend[1] + " = ___ ";
+      var desiredOutput = problem.addend[0] + " + " + problem.addend[1] + " = " + problem.sum;
       expect(problem.render()).toBe(desiredOutput);
     });
   });

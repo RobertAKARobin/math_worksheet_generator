@@ -9,3 +9,5 @@ var files = [
 files.forEach(function(file){
   require("../../" + file + ".js");
 });
+
+Problem.prototype.template = new Template("{{#each addend}}{{#if _index}} + {{/if}}{{_value}}{{/each}} = {{sum}}");
