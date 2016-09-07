@@ -1,4 +1,10 @@
 var _ = {
+  get: function(query){
+    return document.querySelector(query);
+  },
+  getAll: function(query){
+    return document.querySelectorAll(query);
+  },
   repeatTimes: function(totalTimes, functionToRepeat){
     var currentTime = 0;
     while(currentTime < totalTimes){
