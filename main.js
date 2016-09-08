@@ -11,8 +11,13 @@ var placeProblems = function(){
 }
 
 var main = function(){
-  Problem.prototype.template = new Template(_.get("[data-template='problem']"));
-  _.get("#do_generate").addEventListener("click", placeProblems);
+  var page = _.get("#page");
+  var section = new Template(_.get("[data-template='section']"));
+  _.repeatTimes(60, function(currentTime){
+    page.innerHTML += section.fillWith({
+      id: currentTime
+    });
+  });
 }
 
 window.addEventListener("DOMContentLoaded", main);

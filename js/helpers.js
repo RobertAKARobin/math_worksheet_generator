@@ -8,7 +8,7 @@ var _ = {
   repeatTimes: function(totalTimes, functionToRepeat){
     var currentTime = 0;
     while(currentTime < totalTimes){
-      functionToRepeat();
+      functionToRepeat(currentTime);
       currentTime += 1;
     }
   }
