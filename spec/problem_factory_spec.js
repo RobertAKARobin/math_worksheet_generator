@@ -1,14 +1,57 @@
 describe("ProblemFactory", function(){
+  var factory = new ProblemFactory();
+  factory.sourceFrom("[0-10] + [0-10] = __");
+  describe("#sourceFrom", function(){
+    xit("creates an array of components", function(){
+      expect(factory.components).toBeAnArray();
+    });
+    xit("generates a testable expression for equation", function(){
+      expect(factory.expression).toBe("problem.components[0] + problem.components[2] === problem.components[4]");
+    });
+    xit("matches chunks of strings to component types", function(){
+      var component = function(string){
+        var factory = new ProblemFactory();
+        factory.sourceFrom(string);
+        return factory.components[0];
+      }
+      expect(component("[0-10]")).toBeLessThan(10);
+      expect(component("[0-10]")).toBeGreaterThan(10);
+      expect(component("+").type).toBe("operand");
+      expect(component("__").type).toBe("blank");
+    });
+  });
   describe("#generate", function(){
-    it("returns two addends and a sum", function(){
-      var maxNumber = 10;
-      var problemFactory = new ProblemFactory({
-        maxNumber: maxNumber
+    var problem = factory.generate();
+    xit("returns a Problem", function(){
+      expect(problem instanceof Problem).toBeTruthy();
+    });
+    xit("tests the problem's components evaluate correctly", function(){
+      expect(factory.test(problem)).toBeTruthy();
+    });
+  });
+
+  describe("Component", function(){
+    var component = factory.components[0];
+    xit("has a type", function(){
+      expect(component.type).toBe("number");
+    });
+    xit("has a max and min", function(){
+      expect(component.min).toBe(0);
+      expect(component.max).toBe(10);
+    });
+    describe("#test", function(){
+      xit("determines whether an input matches the components' guidelines", function(){
+        expect(component.test(3)).toBeTruthy();
+        expect(component.test(-5)).toBeFalsy();
+        expect(component.test("a")).toBeFalsy();
       });
-      var problem = problemFactory.generate();
-      expect(problem.addend[0]).toBeLessThan(maxNumber);
-      expect(problem.addend[1]).toBeLessThan(maxNumber);
-      expect(problem.sum).toBe(problem.addend[0] + problem.addend[1]);
+    });
+    describe("#generate", function(){
+      xit("returns a value matching the components' guidelines", function(){
+        var result = component.generate();
+        expect(result).toBeLessThan(component.max);
+        expect(result).toBeGreaterThan(component.min);
+      });
     });
   });
 });

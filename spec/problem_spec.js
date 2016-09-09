@@ -1,12 +1,14 @@
 describe("Problem", function(){
+  var factory = new ProblemFactory("[0-10] + [0-10] = __");
+  var problem = factory.generate();
   describe("#render", function(){
-    it("returns HTML for a Problem", function(){
-      var problemFactory = new ProblemFactory({
-        maxNumber: 10
-      });
-      var problem = problemFactory.generate();
-      var desiredOutput = problem.addend[0] + " + " + problem.addend[1] + " = " + problem.sum;
-      expect(problem.render()).toBe(desiredOutput);
+    xit("returns a string", function(){
+      expect(typeof problem.render()).toBe("string");
+    });
+    xit("returned string contains components", function(){
+      var output = string.split(/ /g);
+      expect(output).toContain(problem.component[0]);
+      expect(output).toContain(problem.component[1]);
     });
   });
 });
