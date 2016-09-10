@@ -1,5 +1,5 @@
 describe("Problem", function(){
-  var factory = new ProblemFactory("[0-10] + [0-10] = __");
+  var factory = new ProblemFactory("[1,10] + [1,10] = __");
   var problem = factory.generate();
   describe("#render", function(){
     xit("returns a string", function(){

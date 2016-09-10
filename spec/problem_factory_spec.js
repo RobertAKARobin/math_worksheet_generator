@@ -1,6 +1,6 @@
 describe("ProblemFactory", function(){
   var factory = new ProblemFactory();
-  factory.sourceFrom("[0-10] + [0-10] = __");
+  factory.sourceFrom("[1,10] + [1,10] = __");
   describe("#sourceFrom", function(){
     xit("creates an array of components", function(){
       expect(factory.components).toBeAnArray();
@@ -14,8 +14,8 @@ describe("ProblemFactory", function(){
         factory.sourceFrom(string);
         return factory.components[0];
       }
-      expect(component("[0-10]")).toBeLessThan(10);
-      expect(component("[0-10]")).toBeGreaterThan(10);
+      expect(component("[1,10]")).toBeLessThan(11);
+      expect(component("[1,10]")).toBeGreaterThan(0);
       expect(component("+").type).toBe("operand");
       expect(component("__").type).toBe("blank");
     });
@@ -36,7 +36,7 @@ describe("ProblemFactory", function(){
       expect(component.type).toBe("number");
     });
     xit("has a max and min", function(){
-      expect(component.min).toBe(0);
+      expect(component.min).toBe(1);
       expect(component.max).toBe(10);
     });
     describe("#test", function(){
