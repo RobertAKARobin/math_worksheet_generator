@@ -18,6 +18,9 @@ var main = function(){
       id: currentTime
     });
   });
+
+  var t = new ProblemFactory();
+  t.sourceFrom("[0-10] + [0-10] = __");
 }
 
 window.addEventListener("DOMContentLoaded", main);
