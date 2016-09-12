@@ -23,7 +23,7 @@ ProblemFactory.prototype = (function(){
     instance.source = source;
     instance.prop = factory[1];
     instance.build = factory[2];
-    instance.build();
+    return (instance.build() || instance);
   }
   Component.factories = [
     [
@@ -31,6 +31,7 @@ ProblemFactory.prototype = (function(){
       {type: "number", from: "set"},
       function(){
         var instance = this;
+        instance.set = instance.source.replace(/\{|\}/g,"").split(",");
       }
     ],
     [
@@ -38,6 +39,9 @@ ProblemFactory.prototype = (function(){
       {type: "number", from: "range"},
       function(){
         var instance = this;
+        var chunks = instance.source.match(/(\(|\[)(-?\d+),(-?\d+)(\)|\])/);
+        instance.min = {value: chunks[2], inclusive: (chunks[1] === "[")}
+        instance.max = {value: chunks[3], inclusive: (chunks[4] === "]")}
       }
     ],
     [
@@ -45,13 +49,18 @@ ProblemFactory.prototype = (function(){
       {type: "operator"},
       function(){
         var instance = this;
+        instance.set = instance.source.split("");
       }
     ],
     [
       /\_.*?\_/,
       {blank: "true"},
       function(){
-        var instance = this;
+        var instance = this
+        var newInstance = Component.createMany(instance.source.replace(/^_|_$/g,""))[0];
+        newInstance.source = instance.source;
+        newInstance.prop.blank = true;
+        return newInstance;
       }
     ]
   ];
@@ -62,20 +71,25 @@ ProblemFactory.prototype = (function(){
     });
     return new RegExp(out.join("|"), "g");
   })();
-  Component.create = function(){
-    var n, l = arguments.length;
-    for(n = 1; n < l; n += 1){
-      if(arguments[n]) return private.instance.components.push(
-        new Component(n - 1, arguments[n])
-      );
+  Component.createMany = function(source){
+    var out = [];
+    var getComponentType = function(){
+      var n, l = arguments.length;
+      for(n = 1; n < l; n += 1){
+        if(arguments[n]){
+          out.push(new Component(n - 1, arguments[n]));
+          return;
+        }
+      }
     }
+    source.replace(Component.matcher, getComponentType);
+    return out;
   }
 
   public.sourceFrom = function(input){
-    var instance = private.instance = this;
+    var instance = this;
     instance.source = input;
-    instance.components = [];
-    instance.source.replace(Component.matcher, Component.create);
+    instance.components = Component.createMany(instance.source);
   }
   public.generate = function(){
     var instance = this;

@@ -20,7 +20,7 @@ var main = function(){
   });
 
   var t = new ProblemFactory();
-  t.sourceFrom("[1,10] + [1,10] = __");
+  t.sourceFrom("[1,10] + [1,10] = _{3,4}_");
 }
 
 window.addEventListener("DOMContentLoaded", main);
